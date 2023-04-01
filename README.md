@@ -13,7 +13,7 @@ are provided by FRED Federal Reserve Economic Data (FRED), that is a database ma
 the Research division of the Federal Reserve Bank. The code is all available in fx_rates_application.py
 Let's see the procedure:
 
-This are the prices:
+These are the prices:
 ![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/rates_hist.png?raw=true)
 This is a scatter plot of the log returns and a compareson between each ECDF and its
  respective Gaussian normal cumulative density function with the mean and standar
@@ -38,15 +38,22 @@ The resulting model, once simulated, has got this scatter plot
 
 ## Copula's Theory and Main Results
 
-In probability theory, a copula is a mathematical object used to describe the dependence between two or more random variables, without taking their marginal distributions into account. In other words, a copula represents the joint distribution of a set of random variables as a uniform distribution over the unit square/cube, factoring in their dependence structure separate from their marginal distributions.
+In probability theory, a copula is a mathematical object used to 
+describe the dependence between two or more random variables, without taking their 
+marginal distributions into account. In other words, a copula represents the joint 
+distribution of a set of random variables as a uniform distribution over the unit 
+square/cube, factoring in their dependence structure separate from their marginal 
+distributions.
 
-Suppose $X = (X_1, X_2, ..., X_d)$ is a random vector with continuous marginal distributions on $[0,1]$, where $d$ is the number of variables. The Copula $C$ of $X$ is a function $C : [0,1]^d \rightarrow [0,1]$ that satisfies the following properties:
+### Definition 1
+A $d$-dimensional copula, $C : [0, 1]^d : → [0, 1]$ is a cumulative distribution function (CDF) with
+uniform marginals. Therefore $C$ is a copula if there exists a random vector 
+$X = (X_1, X_2, ..., X_d)$ such that each $X:i$ is uniform and such that
+$C(x_1,...,x_d) = P(X_1\leq x_1,..., X_d\leq x_d)$
 
-1. $C$ is a multidimensional cumulative distribution function (CDF) with uniform marginals.
-2. $C$ is a dependency structure that describes the probability distribution of a set of variables.
-3. $C$ is Sklar's Theorem compatible, i.e., it links the marginal distribution functions of a random vector to its joint distribution through a copula.
 
-## Sklar's Theorem
+
+### Sklar's Theorem
 
 Sklar's Theorem is a fundamental theorem in the theory of copulas and provides a way to uniquely decompose any multivariate distribution function into univariate distributions and a copula. The theorem states:
 
