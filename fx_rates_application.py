@@ -62,9 +62,9 @@ plt.xlim(lm)
 plt.ylim(lm)
 plt.show()
 
-# Last one
+
 plt.figure()
-Z = np.random.multivariate_normal(mean=np.array([0,0]), cov=np.cov(np.transpose(ret)), size=1000)
+Z = np.random.multivariate_normal(mean=np.array([0, 0]), cov=np.cov(np.transpose(ret)), size=1000)
 Y = np.transpose(Z)
 plt.title('Simulated Gaussian variables')
 plt.scatter(Y[0], Y[1])

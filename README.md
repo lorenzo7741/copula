@@ -5,7 +5,7 @@ The Repo contains:
     simulate these kind of copulas
 - fx_rates_application: an application of the MetaGaussianMultivariate class to the pair of 
 exchange rates $/£ and £/€.
-## An application of Multivariate Meta-Gaussian Copula Model for Log Returns of exchange rate `$`/`£` and \$/€
+## An application of Multivariate Meta-Gaussian Copula Model for Log Returns of exchange rate USD/GBP and USD/EUR
 This is an example of how a meta-Gaussian copula can be fitted to a pair of prices that shows
 a correlation and a fat-tails effect. This specific example was build on two 
 historical series: the exchange rate $/£ and the exchange rate $/€. The historical series 
@@ -13,7 +13,6 @@ are provided by FRED Federal Reserve Economic Data (FRED), that is a database ma
 the Research division of the Federal Reserve Bank. The code is all available in fx_rates_application.py
 Let's see the procedure:
 
-### 1. The historical series
 This are the prices:
 ![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/rates_hist.png?raw=true)
 This is a scatter plot of the log returns and a compareson between each ECDF and its
@@ -21,19 +20,23 @@ This is a scatter plot of the log returns and a compareson between each ECDF and
   deviation of the respective sample.
 ![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/rates_hist_scatter.png?raw=true)
 ![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/ecdf_vs_gaussian.png?raw=true)
-A certain correlation between the returns of the prices is showed. Moreover a little
+Prices show a certain correlation. Moreover a little
 fat-tails effect is showd by the ECDFs. A meta-Gaussian model, can be used to model the 
-joint-cumulative density function of this pair. Tha class MetaGaussianMultivariate is used, with
-its main method .fit on the returns of the prices. 
+joint-cumulative density function of this pair. Tha class MetaGaussianMultivariate is used, 
+with its main method .fit on the returns of the prices. 
 
 Once the model is fitted, and the distribution function is defined, a sample
- of $n=1000$ is generated. The following chart shows its scatter plot
+of $n=1000$ is generated. The following chart shows the scatter plot of a sample of $n$ 
+following the fitted meta-Gaussian distribution
 ![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/sim_copula_scatter.png?raw=true)
-How about doing this with 
+
+Now we can compare the meta-Gaussian methodology with the classical Gaussian model. We therefore 
+evaluate the mean and the covariance matrix of the historical sample of the log-returns. 
+The resulting model, once simulated, has got this scatter plot 
 ![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/sim_gaussian_scatter.png?raw=true)
 
 
-## Copula
+## Copula's Theory and Main Results
 
 In probability theory, a copula is a mathematical object used to describe the dependence between two or more random variables, without taking their marginal distributions into account. In other words, a copula represents the joint distribution of a set of random variables as a uniform distribution over the unit square/cube, factoring in their dependence structure separate from their marginal distributions.
 
@@ -49,9 +52,9 @@ Sklar's Theorem is a fundamental theorem in the theory of copulas and provides a
 
 - For any multivariate distribution function H(x₁, x₂, ..., xn), there exist unique marginal distribution functions Fi and a unique copula C(u₁, u₂, ..., un) such that:
 
-\begin{equation}
+```math
 H(x_1, x_2, \cdots, x_n) = C(F_1(x_1), F_2(x_2), \cdots, F_n(x_n)), \;\;\;\;\;\;\;\;\;\; x_1 \in \mathbb{R}, \cdots, x_n \in \mathbb{R}
-\end{equation}
+```
 where the marginal distribution functions Fi are uniquely defined, continuous and non-decreasing.
 
 ## Gaussian Copulae
