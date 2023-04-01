@@ -64,9 +64,9 @@ The Gaussian Copula is a special type of copula that uses a Gaussian distributio
 
 Each element of the correlation matrix for a Gaussian Copula is bounded between -1 and 1. The parameter ρ represents the correlation coefficient between the two variables, and is given
 
-\begin{equation}
+$$
 C(u_1, u_2) = \Phi_{\rho}\Big(\Phi^{-1}(u_1),\Phi^{-1}(u_2)\Big),
-\end{equation}
+$$
 where $u_1$ and $u_2$ are parts of the standard multivariate normal random vector with correlation matrix $C$, $\Phi(z)$ is the standard
 normal cumulative distribution function, and $\Phi _\rho(u_1,u_2)$ is the bivariate normal cumulative distribution
 function with correlation coefficient $\rho$.
