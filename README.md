@@ -1,12 +1,9 @@
-# Copula
+# Copula Repository
 Repo with multivariate copula classes and calibration methods
-
-
-# Meta-Gaussian Copula Multivariate Model for Log Returns 
-
+## An application of Multivariate Meta-Gaussian Copula Model for Log Returns of exchange rate $/£ and $/€
 This code takes two prices and fits a Meta-Gaussian Copula Multivariate Model to the Log Returns of the prices. After fitting the model, the code also generates several plots to visualize the data and analysis results.
 
-## Libraries Required
+### Libraries Required
 - pandas
 - pandas_datareader
 - numpy
@@ -60,7 +57,12 @@ where the marginal distribution functions Fi are uniquely defined, continuous an
 
 ## Gaussian Copulae
 
-The Gaussian Copula is a special type of copula that uses a Gaussian distribution (normal distribution) to model the dependency structure between random variables. The Gaussian Copula has become increasingly popular in finance as a tool to measure credit risk and to calculate Value at Risk (VaR). A multivariate normal distribution with correlation matrix C can be expressed as a Gaussian copula with covariance matrix Σ, where Σ is any matrix such that ΣΣ^T = C.
+The Gaussian Copula is a special type of copula that uses a Gaussian distribution 
+(normal distribution) to model the dependency structure between random variables.
+ The Gaussian Copula has become increasingly popular in finance as a tool to measure 
+ credit risk and to calculate Value at Risk (VaR). A multivariate normal distribution 
+ with correlation matrix C can be expressed as a Gaussian copula with covariance
+  matrix $Σ, where $Σ is any matrix such that $ΣΣ^T = C$.
 
 Each element of the correlation matrix for a Gaussian Copula is bounded between -1 and 1. The parameter ρ represents the correlation coefficient between the two variables, and is given
 
