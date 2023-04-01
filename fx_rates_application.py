@@ -1,7 +1,6 @@
 import pandas as pd
 import pandas_datareader as pdr
 import numpy as np
-import logging
 from scipy.stats import norm
 from MetaGaussianMultivariate import MetaGaussianMultivariate as mgm
 from datetime import datetime
@@ -30,22 +29,22 @@ n_sim = 1000
 Y = cp_mgm.simulate(n_sim)
 
 plt.figure()
-plt.title("Prices")
-plt.plot(X[:, 0])
-plt.plot(X[:, 1])
+plt.title("Exchange Rates - Historical Sample")
+plt.plot(df.index, X[:, 0])
+plt.plot(df.index, X[:, 1])
 plt.legend(['exchange rate $/£', 'exchange rate $/€'])
 plt.show()
 
 plt.figure()
-plt.scatter(ret[:,0], ret[:,1])
+plt.title("Exchange Rates log-returns - Scatter Plot")
+plt.scatter(ret[:, 0], ret[:, 1])
 plt.xlim(lm)
 plt.ylim(lm)
-
 plt.show()
 
 # Analysis on normal distribution VS empirical ones
 fig, axs = plt.subplots(1, 2)
-x = np.linspace(-0.03, 0.03, 5000)
+x = np.linspace(-0.02, 0.02, 5000)
 mu0, std0 = norm.fit(ret[:, 0])
 mu1, std1 = norm.fit(ret[:, 1])
 axs[0].set_title("CDF Normal vs CDF Empirical $/£")
@@ -57,6 +56,7 @@ axs[1].plot(x, norm.cdf(x, loc=mu1, scale=std1), 'r--')
 plt.show()
 
 plt.figure()
+plt.title('Simulated meta-gaussian variables')
 plt.scatter(Y[:, 0], Y[:, 1])
 plt.xlim(lm)
 plt.ylim(lm)
@@ -66,8 +66,8 @@ plt.show()
 plt.figure()
 Z = np.random.multivariate_normal(mean=np.array([0,0]), cov=np.cov(np.transpose(ret)), size=1000)
 Y = np.transpose(Z)
-plt.title()
-plt.scatter(Y[0], Y[1])#, kind="kde", fill=True)
+plt.title('Simulated gaussian variables')
+plt.scatter(Y[0], Y[1])
 plt.xlim(lm)
 plt.ylim(lm)
 plt.show()

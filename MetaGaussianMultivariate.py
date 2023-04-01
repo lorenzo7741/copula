@@ -8,12 +8,8 @@ LOGGER = logging.getLogger(__name__)
 
 
 class MetaGaussianMultivariate:
-    """Class for a multivariate distribution that uses the Gaussian copula.
-    Args:
-        distribution (str or dict):
-            Fully qualified name of the class to be used for modeling the marginal
-            distributions or a dictionary mapping column names to the fully qualified
-            distribution names.
+    """Class for a multivariate meta-gaussian copula random variable. The class provide functions to fit and
+    simulate these kind of copulas
     """
     marginals = None
     inv_marginals = None
@@ -23,13 +19,24 @@ class MetaGaussianMultivariate:
     fitted = False
 
     def fit(self, X):
-        """Compute the distribution for each variable and then its covariance matrix.
-        Arguments:
-            X (numpy.array):
-                Values of the random variables.
+        """
+        This function fits a multivariate meta-gaussian copula on the data provided in X. Marginals are supposed with arbitrary
+        distribution and are and estimated empirically. The parameters of the gaussian copula are estimated with
+        Kendall's tau.
+        :param
+             X (nxd numpy.array):  Sample data used to fit the model. `n` and `d` denote the number of observations and
+             the number of variables, respectively.
+        :return
+            self.marginals (dx1 lambda functions):
+            self.cov (dxd numpy.array): covariance matrix estimated
+            self.mu (dx1 numpy.array): mean estimated
+            self.pval (dx1 numpy.array): p-value of the estimation of the covariance with Kendall's tau
+            self.fitted (bool): put as true from the function
         """
         assert isinstance(X, np.ndarray)
         d = X.shape[1]
+        mu = np.mean(X, axis=0)
+        X = X - mu
         marginals = []
         cov = np.eye(d)
         pval = np.empty((d, d))
@@ -43,7 +50,6 @@ class MetaGaussianMultivariate:
                 omega = np.sin(np.pi * tau / 2)
                 cov[i, j], cov[j, i] = omega, omega
                 pval[i, j], pval[j, i] = p, p
-        mu = np.mean(X, axis=0)
 
         for i in range(d):
             # LOGGER.debug('Fitting column %s to ??', column_name)
@@ -59,65 +65,45 @@ class MetaGaussianMultivariate:
         LOGGER.debug('Meta-Gaussian Multivariate Copula fitted successfully.')
 
     def check_fit(self):
+        """
+        This function checks if the model is fitted or not. It raises a `ValueError` if the model is not fitted yet.
+        :return:
+            None
+        """
         if not self.fitted:
             raise ValueError('The disribution is not fitted yet. First provide a sample of n elements X (nxd) and fit the model with MetaGaussianMultivariate.fit(X)')
         return
 
-    def probability_density(self, X):
-        """Compute the probability density for each point in X.
-        Arguments:
-            X (pandas.DataFrame):
-                Values for which the probability density will be computed.
-        Returns:
-            numpy.ndarray:
-                Probability density values for points in X.
-        Raises:
-            NotFittedError:
-                if the model is not fitted.
-        """
-        if self.fitted:
-            pass
-        else:
-            raise ValueError('The disribution is not fitted yet. First provide a sample of n elements X (nxd) and fit the model with MetaGaussianMultivariate.fit(X)')
-
-    def cumulative_distribution(self, X):
-        """Compute the cumulative distribution value for each point in X.
-        Arguments:
-            X (pandas.DataFrame):
-                Values for which the cumulative distribution will be computed.
-        Returns:
-            numpy.ndarray:
-                Cumulative distribution values for points in X.
-        Raises:
-            NotFittedError:
-                if the model is not fitted.
-        """
-        if self.fitted:
-            pass
-        else:
-            raise ValueError()
+#    def probability_density(self):
+#        if self.fitted:
+#            pass
+#        else:
+#            raise ValueError('The disribution is not fitted yet. First provide a sample of n elements X (nxd) and fit the model with MetaGaussianMultivariate.fit(X)')
+#    def cumulative_distribution(self):
+#        if self.fitted:
+#            pass
+#        else:
+#            raise ValueError()
 
     def calc_inv_marginals(self):
+        """
+        This function calculates the inverse of the empirical cumulative distribution function
+        for marginal distributions.
+        :return:
+            self.inv_marginals
+        """
         inv_marginals = [lambda x: pseudo_inv_ecdf(F, x) for F in self.marginals]
         self.inv_marginals = inv_marginals
         return
 
     def simulate(self, n):
-        """Sample values from this model.
-        Argument:
-            num_rows (int):
-                Number of rows to sample.
-            conditions (dict or pd.Series):
-                Mapping of the column names and column values to condition on.
-        Returns:
-            numpy.ndarray:
-                Array of shape (n_samples, *) with values randomly
-                sampled from this model distribution. If conditions have been
-                given, the output array also contains the corresponding columns
-                populated with the given values.
-        Raises:
-            NotFittedError:
-                if the model is not fitted.
+        """
+        This function samples `n` points from the fitted model and returns a `numpy.ndarray` of shape `(n,d)` where
+        `d` denotes the number of variables. It raises a `ValueError` if the model is not fitted yet.
+        :param
+            n (int): dimension of the sample
+        :returns
+            (nxd numpy.ndarray): the simulated sample
         """
         self.check_fit()
         if not self.inv_marginals:
