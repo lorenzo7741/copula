@@ -45,7 +45,7 @@ distribution of a set of random variables as a uniform distribution over the uni
 square/cube, factoring in their dependence structure separate from their marginal 
 distributions.
 
-### Definition 1
+### Definition (Copula)
 A $d$-dimensional copula, $C : [0, 1]^d : → [0, 1]$ is a cumulative distribution function (CDF) with
 uniform marginals. Therefore $C$ is a copula if there exists a random vector 
 $X = (X_1, X_2, ..., X_d)$ such that each $X_i$ is uniform and such that
@@ -64,16 +64,23 @@ F(x_1, x_2, \cdots, x_n) = C(F_1(x_1), F_2(x_2), \cdots, F_n(x_n))
 ```
 
 where $Fi$ are the marginal distribution functions
-## Gaussian Copulae
+## Gaussian Copulas
 
 The Gaussian Copula is a special type of copula that uses a Gaussian distribution 
 (normal distribution) to model the dependency structure between random variables.
- The Gaussian Copula has become increasingly popular in finance as a tool to measure 
- credit risk and to calculate Value at Risk (VaR). A multivariate normal distribution 
- with correlation matrix C can be expressed as a Gaussian copula with covariance
-  matrix $Σ, where $Σ is any matrix such that $ΣΣ^T = C$.
+The Gaussian Copula has become increasingly popular in finance as a tool to measure 
+credit risk and to calculate Value at Risk (VaR). A multivariate normal distribution 
+with correlation matrix $C$ can be expressed as a Gaussian copula with covariance
+  matrix $\Sigma$, where $\Sigma$ is any matrix such that $\Sigma\Simga^T = C$.
 
-Each element of the correlation matrix for a Gaussian Copula is bounded between -1 and 1. The parameter ρ represents the correlation coefficient between the two variables, and is given
+### Definition (Gaussian Copula)
+Let $X ∼ N_d(0, P)$, where P is the correlation matrix of $X$. From Sklar's theorem we know
+that there exist a copula $C$ such that
+```math
+\Phi(x_1, x_2, \cdots, x_n) = C(\phi(x_1), \phi(x_2), \cdots, \phi(x_n))
+```
+where $\phi()$ is the standard univariate normal CDF and $\Phi()$ denotes the joint CDF 
+of 
 
 ```math
 C(u_1, u_2) = \Phi_{\rho}\Big(\Phi^{-1}(u_1),\Phi^{-1}(u_2)\Big),
