@@ -5,7 +5,7 @@ The Repo contains:
     simulate these kind of copulas
 - fx_rates_application: an application of the MetaGaussianMultivariate class to the pair of 
 exchange rates $/£ and £/€.
-## An application of Multivariate Meta-Gaussian Copula Model for Log Returns of exchange rate \$/£ and \$/€
+## An application of Multivariate Meta-Gaussian Copula Model for Log Returns of exchange rate \$/\£ and \$/€
 This is an example of how a meta-Gaussian copula can be fitted to a pair of prices that shows
 a correlation and a fat-tails effect. This specific example was build on two 
 historical series: the exchange rate $/£ and the exchange rate $/€. The historical series 
