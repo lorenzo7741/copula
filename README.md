@@ -48,22 +48,22 @@ distributions.
 ### Definition 1
 A $d$-dimensional copula, $C : [0, 1]^d : → [0, 1]$ is a cumulative distribution function (CDF) with
 uniform marginals. Therefore $C$ is a copula if there exists a random vector 
-$X = (X_1, X_2, ..., X_d)$ such that each $X:i$ is uniform and such that
+$X = (X_1, X_2, ..., X_d)$ such that each $X_i$ is uniform and such that
 $C(x_1,...,x_d) = P(X_1\leq x_1,..., X_d\leq x_d)$
 
-
+The main result about copula is the Sklar's theorem. Sklar's Theorem is a fundamental 
+theorem in the theory of copulas and provides a way to uniquely decompose any multivariate
+ distribution function into univariate distributions and a copula.
 
 ### Sklar's Theorem
-
-Sklar's Theorem is a fundamental theorem in the theory of copulas and provides a way to uniquely decompose any multivariate distribution function into univariate distributions and a copula. The theorem states:
-
-- For any multivariate distribution function H(x₁, x₂, ..., xn), there exist unique marginal distribution functions Fi and a unique copula C(u₁, u₂, ..., un) such that:
+For any multivariate distribution function $F(x₁, x₂, ..., xn)$ if a random variable 
+$X = (X_1, X_2, ..., X_d)$, there exists a copula $C(u_1, ..., u_n)$ such that
 
 ```math
-H(x_1, x_2, \cdots, x_n) = C(F_1(x_1), F_2(x_2), \cdots, F_n(x_n)), \;\;\;\;\;\;\;\;\;\; x_1 \in \mathbb{R}, \cdots, x_n \in \mathbb{R}
+F(x_1, x_2, \cdots, x_n) = C(F_1(x_1), F_2(x_2), \cdots, F_n(x_n))
 ```
-where the marginal distribution functions Fi are uniquely defined, continuous and non-decreasing.
 
+where $Fi$ are the marginal distribution functions
 ## Gaussian Copulae
 
 The Gaussian Copula is a special type of copula that uses a Gaussian distribution 
