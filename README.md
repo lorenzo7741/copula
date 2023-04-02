@@ -12,32 +12,29 @@ a correlation and a fat-tails effect. This specific example is built on two
 historical series: the exchange rate USD/GBP and the exchange rate USB/EUR. The historical series 
 are provided by FRED Federal Reserve Economic Data (FRED), that is a database maintained by 
 the Research division of the Federal Reserve Bank. The code is available in fx_rates_application.py.
+
 ### Procedure
 These are the prices obtained bt FRED:
-![alt text](plot/rates_ist.png?raw=true)
+![alt text](plot/rates_hist.png?raw=true)
 This is a scatter plot of the log returns and a comparison between each ECDF and
- the Gaussian normal cumulative density function with the mean and standar
+ the Gaussian normal cumulative density function with the mean and standard
   deviation of the respective sample:
-![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/rates_hist_scatter.png?raw=true)
-![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/ecdf_vs_gaussian.png?raw=true)
+![alt text](plot/rates_hist_scatter.png?raw=true)
+![alt text](plot/ecdf_vs_gaussian.png?raw=true)
 Prices show a certain correlation. Moreover a little
 fat-tails effect is showed by the ECDFs. A meta-Gaussian model, can be used to model the 
 joint-cumulative density function of this pair. Tha class MetaGaussianMultivariate is used, 
-with its main method .fit on the returns of the prices. 
-
-Once the model is fitted, and the distribution function is defined, a sample
-of $n=1000$ is generated. The following chart shows the scatter plot of a sample of $n$ 
-following the fitted meta-Gaussian distribution
-![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/sim_copula_scatter.png?raw=true)
-
-Now we can compare the meta-Gaussian methodology with the classical Gaussian model. We therefore 
+with its main method .fit on the returns of the prices. Once the model is fitted, and the 
+distribution function is defined, a sample of $n=1000$ is generated. The following chart shows
+ the scatter plot of a sample of $n$ following the fitted meta-Gaussian distribution:
+![alt text](plot/sim_copula_scatter.png?raw=true)
+Now we can compare the meta-Gaussian methodology with the classical Gaussian model. Therefore we
 evaluate the mean and the covariance matrix of the historical sample of the log-returns. 
 The resulting model, once simulated, has got this scatter plot 
-![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/sim_gaussian_scatter.png?raw=true)
+![alt text](plot/sim_gaussian_scatter.png?raw=true)
 
 
 ## Copula's Theory and Main Results
-
 In probability theory, a copula is a mathematical object used to 
 describe the dependence between two or more random variables, without taking their 
 marginal distributions into account. In other words, a copula represents the joint 
