@@ -68,7 +68,7 @@ credit risk and correlation between prices. The definition of the Gaussian copul
 is a simple application of the Sklar's theorem at the case of a Gaussian vector.
 
 ### Definition (Gaussian Copula)
-Let $X ∼ \tilde N_d(0, P)$, where P is a correlation matrix. From Sklar's theorem we know
+Let $X \sim N_d(0, P)$, where P is a correlation matrix. From Sklar's theorem we know
 that there exists a copula $C$ such that
 ```math
 \Phi(x_1, x_2, \cdots, x_n) = C(\phi(x_1), \phi(x_2), \cdots, \phi(x_n))
