@@ -74,17 +74,6 @@ class MetaGaussianMultivariate:
             raise ValueError('The disribution is not fitted yet. First provide a sample of n elements X (nxd) and fit the model with MetaGaussianMultivariate.fit(X)')
         return
 
-#    def probability_density(self):
-#        if self.fitted:
-#            pass
-#        else:
-#            raise ValueError('The disribution is not fitted yet. First provide a sample of n elements X (nxd) and fit the model with MetaGaussianMultivariate.fit(X)')
-#    def cumulative_distribution(self):
-#        if self.fitted:
-#            pass
-#        else:
-#            raise ValueError()
-
     def calc_inv_marginals(self):
         """
         This function calculates the inverse of the empirical cumulative distribution function
