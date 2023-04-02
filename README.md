@@ -90,11 +90,13 @@ the probability of discordance, thus the Kendall's tau of $X_1$ and $X_2$ is def
 ```
 
 ### Theorem
-Let $X_1,\ldots, X_d$ be meta-Gaussian multivariate vector with correlation
+Let $X_1,\ldots, X_d$ be a meta-Gaussian multivariate vector with correlation
 matrix $P$. It holds that
 ```math
 \tau(X_i, X_j) = \frac{2}{\pi} \arcsin(P_{ij})
 ```
-where $P_{ij}$ are the elements of $P$
-This means that Kendall's tau can be used as estimateor for the matrix $P$, and it doesn't 
-depend on marginals. 
+where $P_{ij}$ are the elements of $P$.
+
+
+This means that **Kendall's tau can be used as estimator for the matrix $P$, and it doesn't 
+depend on marginals.**
