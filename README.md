@@ -14,7 +14,7 @@ are provided by FRED Federal Reserve Economic Data (FRED), that is a database ma
 the Research division of the Federal Reserve Bank. The code is available in fx_rates_application.py.
 ### Procedure
 These are the prices obtained bt FRED:
-![alt text](plot/rates_hist.png?raw=true)
+![alt text](plot/rates_ist.png?raw=true)
 This is a scatter plot of the log returns and a comparison between each ECDF and
  the Gaussian normal cumulative density function with the mean and standar
   deviation of the respective sample:
