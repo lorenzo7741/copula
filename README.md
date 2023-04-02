@@ -4,24 +4,24 @@ The Repo contains:
 - A class **MetaGaussianMultivariate**: class for a multivariate meta-Gaussian copula random variable. The class provide functions to fit and 
     simulate these kind of copulas
 - **fx_rates_application**: an application of the MetaGaussianMultivariate class to the pair of 
-exchange rates $/£ and $/€.
+exchange rates USD/GBP and USD/EUR.
 
 ## An application of Multivariate Meta-Gaussian Copula Model for Log Returns of exchange rate USD/GBP and USD/EUR
 This is an example of how a meta-Gaussian copula can be fitted to a pair of prices that shows
-a correlation and a fat-tails effect. This specific example was build on two 
-historical series: the exchange rate $/£ and the exchange rate $/€. The historical series 
+a correlation and a fat-tails effect. This specific example is built on two 
+historical series: the exchange rate USD/GBP and the exchange rate USB/EUR. The historical series 
 are provided by FRED Federal Reserve Economic Data (FRED), that is a database maintained by 
-the Research division of the Federal Reserve Bank. The code is all available in fx_rates_application.py.
+the Research division of the Federal Reserve Bank. The code is available in fx_rates_application.py.
 ### Procedure
-These are the prices:
-![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/rates_hist.png?raw=true)
-This is a scatter plot of the log returns and a compareson between each ECDF and its
- respective Gaussian normal cumulative density function with the mean and standar
-  deviation of the respective sample.
+These are the prices obtained bt FRED:
+![alt text](plot/rates_hist.png?raw=true)
+This is a scatter plot of the log returns and a comparison between each ECDF and
+ the Gaussian normal cumulative density function with the mean and standar
+  deviation of the respective sample:
 ![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/rates_hist_scatter.png?raw=true)
 ![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/ecdf_vs_gaussian.png?raw=true)
 Prices show a certain correlation. Moreover a little
-fat-tails effect is showd by the ECDFs. A meta-Gaussian model, can be used to model the 
+fat-tails effect is showed by the ECDFs. A meta-Gaussian model, can be used to model the 
 joint-cumulative density function of this pair. Tha class MetaGaussianMultivariate is used, 
 with its main method .fit on the returns of the prices. 
 
