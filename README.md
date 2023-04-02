@@ -1,18 +1,18 @@
 # Copula Repository
-Repo with multivariate copula classes and calibration methods
+Repo with a multivariate copula class and calibration methods.
 The Repo contains:
-- A class MetaGaussianMultivariate: Class for a multivariate meta-gaussian copula random variable. The class provide functions to fit and 
+- A class **MetaGaussianMultivariate**: class for a multivariate meta-Gaussian copula random variable. The class provide functions to fit and 
     simulate these kind of copulas
-- fx_rates_application: an application of the MetaGaussianMultivariate class to the pair of 
-exchange rates $/£ and £/€.
+- **fx_rates_application**: an application of the MetaGaussianMultivariate class to the pair of 
+exchange rates $/£ and $/€.
+
 ## An application of Multivariate Meta-Gaussian Copula Model for Log Returns of exchange rate USD/GBP and USD/EUR
 This is an example of how a meta-Gaussian copula can be fitted to a pair of prices that shows
 a correlation and a fat-tails effect. This specific example was build on two 
 historical series: the exchange rate $/£ and the exchange rate $/€. The historical series 
 are provided by FRED Federal Reserve Economic Data (FRED), that is a database maintained by 
-the Research division of the Federal Reserve Bank. The code is all available in fx_rates_application.py
-Let's see the procedure:
-
+the Research division of the Federal Reserve Bank. The code is all available in fx_rates_application.py.
+### Procedure
 These are the prices:
 ![alt text](https://github.com/lorenzo7741/copula/blob/pp/plot/rates_hist.png?raw=true)
 This is a scatter plot of the log returns and a compareson between each ECDF and its
@@ -90,7 +90,7 @@ with distribution function F. The Kendall's tau is a measure of correlation
 between $X_1 and $X_2$ and is defined as the probability of concordance minus 
 the probability of discordance, thus the Kendall's tau of $X_1$ and $X_2)$ is defined as
 ```math
-\tau(X_1, X_2) = P{(X_1 − Y_1)(X_2 − Y_2) > 0} − P{(X_1 − Y_1)(X_2 − Y_2) < 0}.
+\tau(X_1, X_2) = P\{(X_1 − Y_1)(X_2 − Y_2) > 0\} − P\{(X_1 − Y_1)(X_2 − Y_2) < 0\}.
 ```
 
 ### Theorem
