@@ -80,6 +80,10 @@ where $\phi$ is the standard univariate Gaussian cumulative density function of 
  random variable $\tilde N(0, 1)$ and $\Phi$ denotes the joint cumulative density function
 of a multivariate Gaussian distribution $\tilde N_d(0, P)$. $C$ is called Gaussian copula.
 
+
+From now on we will refer to multivariate random variables with Gaussian copula
+and arbitrary marginals as meta-Gaussian random variables
+
 ### Definition (Kendall's tau)
 Let $(X_1, X_2)$ and $(Y_1, Y_2)$ be independent and identically distributed random vectors
 with distribution function F. The Kendall's tau is a measure of correlation
@@ -89,10 +93,12 @@ the probability of discordance, thus the Kendall's tau of $X_1$ and $X_2)$ is de
 \tau(X_1, X_2) = P{(X_1 − Y_1)(X_2 − Y_2) > 0} − P{(X_1 − Y_1)(X_2 − Y_2) < 0}.
 ```
 
-### Definition (Kendall's tau)
+### Theorem
 Let $X_1,\ldots, X_d$ be meta-Gaussian multivariate vector with correlation
 matrix $P$. It holds that
 ```math
 \tau(X_i, X_j) = \frac{2}{\pi} \arcsin(P_{ij})
 ```
- 
+where $P_{ij}$ are the elements of $P$
+This means that Kendall's tau can be used as estimateor for the matrix $P$, and it doesn't 
+depend on marginals. 
