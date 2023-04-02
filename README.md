@@ -30,7 +30,7 @@ distribution function is defined, a sample of $n=1000$ is generated. The followi
 ![alt text](plot/sim_copula_scatter.png?raw=true)
 Now we can compare the meta-Gaussian methodology with the classical Gaussian model. Therefore we
 evaluate the mean and the covariance matrix of the historical sample of the log-returns. 
-The resulting model, once simulated, has got this scatter plot 
+The resulting model, once simulated, has got this scatter plot:
 ![alt text](plot/sim_gaussian_scatter.png?raw=true)
 
 
@@ -49,15 +49,15 @@ $X = (X_1, X_2, ..., X_d)$ such that each $X_i$ is uniform in $[0, 1]$ and such 
 $C(x_1,...,x_d) = P(X_1\leq x_1,..., X_d\leq x_d)$
 
 The main result about copula is the Sklar's theorem: it provides a way to decompose any 
-multivariate distribution function into marginals and a copula.
+multivariate cumulative distribution function into marginals and a copula.
 
 ### Sklar's Theorem
-For any multivariate distribution function $F(x_1, x_2, ..., x_n)$ of a random variable 
+For any multivariate cumulative distribution function $F(x_1, x_2, ..., x_n)$ of a random variable 
 $X = (X_1, X_2, ..., X_d)$ with arbitrary marginals, there exists a copula $C(u_1, ..., u_n)$ such that
 ```math
 F(x_1, x_2, \cdots, x_n) = C(F_1(x_1), F_2(x_2), \cdots, F_n(x_n))
 ```
-where $F_i$ are the marginal distribution functions of $X_1, X_2, ..., X_d$
+where $F_i$ are the cumulative distribution functions of $X_1, X_2, ..., X_d$
 
 ### Gaussian Copulas
 The Gaussian Copula is a copula that uses a Gaussian distribution 
@@ -82,9 +82,9 @@ and arbitrary marginals as meta-Gaussian random variables
 
 ### Definition (Kendall's tau)
 Let $(X_1, X_2)$ and $(Y_1, Y_2)$ be independent and identically distributed random vectors
-with distribution function F. The Kendall's tau is a measure of correlation
-between $X_1 and $X_2$ and is defined as the probability of concordance minus 
-the probability of discordance, thus the Kendall's tau of $X_1$ and $X_2)$ is defined as
+with distribution function $F$. The Kendall's tau is a measure of correlation
+between $X_1$ and $X_2$ and is defined as the probability of concordance minus 
+the probability of discordance, thus the Kendall's tau of $X_1$ and $X_2$ is defined as
 ```math
 \tau(X_1, X_2) = P\{(X_1 − Y_1)(X_2 − Y_2) > 0\} − P\{(X_1 − Y_1)(X_2 − Y_2) < 0\}.
 ```
