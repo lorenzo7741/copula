@@ -46,45 +46,53 @@ square/cube, factoring in their dependence structure separate from their margina
 distributions.
 
 ### Definition (Copula)
-A $d$-dimensional copula, $C : [0, 1]^d : → [0, 1]$ is a cumulative distribution function (CDF) with
-uniform marginals. Therefore $C$ is a copula if there exists a random vector 
-$X = (X_1, X_2, ..., X_d)$ such that each $X_i$ is uniform and such that
+A $d$-dimensional copula, $C : [0, 1]^d : → [0, 1]$ is a cumulative distribution 
+function (CDF) of uniform marginals. Therefore $C$ is a copula if there exists a random vector 
+$X = (X_1, X_2, ..., X_d)$ such that each $X_i$ is uniform in $[0, 1]$ and such that
 $C(x_1,...,x_d) = P(X_1\leq x_1,..., X_d\leq x_d)$
 
 The main result about copula is the Sklar's theorem. Sklar's Theorem is a fundamental 
-theorem in the theory of copulas and provides a way to uniquely decompose any multivariate
- distribution function into univariate distributions and a copula.
+theorem in the theory of copulas and provides a way to decompose any multivariate
+ distribution function into marginals and a copula.
 
 ### Sklar's Theorem
-For any multivariate distribution function $F(x₁, x₂, ..., xn)$ if a random variable 
-$X = (X_1, X_2, ..., X_d)$, there exists a copula $C(u_1, ..., u_n)$ such that
-
+For any multivariate distribution function $F(x₁, x₂, ..., xn)$ of a random variable 
+$X = (X_1, X_2, ..., X_d)$ with arbitrary marginals, there exists a copula $C(u_1, ..., u_n)$ such that
 ```math
 F(x_1, x_2, \cdots, x_n) = C(F_1(x_1), F_2(x_2), \cdots, F_n(x_n))
 ```
+where $F_i$ are the marginal distribution functions of $X_1, X_2, ..., X_d$
 
-where $Fi$ are the marginal distribution functions
-## Gaussian Copulas
-
-The Gaussian Copula is a special type of copula that uses a Gaussian distribution 
+### Gaussian Copulas
+The Gaussian Copula is a copula that uses a Gaussian distribution 
 (normal distribution) to model the dependency structure between random variables.
 The Gaussian Copula has become increasingly popular in finance as a tool to measure 
-credit risk and to calculate Value at Risk (VaR). A multivariate normal distribution 
-with correlation matrix $C$ can be expressed as a Gaussian copula with covariance
-  matrix $\Sigma$, where $\Sigma$ is any matrix such that $\Sigma\Simga^T = C$.
+credit risk and correlation between prices. The definition of the Gaussian copula
+is a simple application of the Sklar's theorem at the case of a Gaussian vector.
 
 ### Definition (Gaussian Copula)
-Let $X ∼ N_d(0, P)$, where P is the correlation matrix of $X$. From Sklar's theorem we know
-that there exist a copula $C$ such that
+Let $X ∼ \tilde N_d(0, P)$, where P is a correlation matrix. From Sklar's theorem we know
+that there exists a copula $C$ such that
 ```math
 \Phi(x_1, x_2, \cdots, x_n) = C(\phi(x_1), \phi(x_2), \cdots, \phi(x_n))
 ```
-where $\phi()$ is the standard univariate normal CDF and $\Phi()$ denotes the joint CDF 
-of 
+where $\phi$ is the standard univariate Gaussian cumulative density function of a 
+ random variable $\tilde N(0, 1)$ and $\Phi$ denotes the joint cumulative density function
+of a multivariate Gaussian distribution $\tilde N_d(0, P)$. $C$ is called Gaussian copula.
 
+### Definition (Kendall's tau)
+Let $(X_1, X_2)$ and $(Y_1, Y_2)$ be independent and identically distributed random vectors
+with distribution function F. The Kendall's tau is a measure of correlation
+between $X_1 and $X_2$ and is defined as the probability of concordance minus 
+the probability of discordance, thus the Kendall's tau of $X_1$ and $X_2)$ is defined as
 ```math
-C(u_1, u_2) = \Phi_{\rho}\Big(\Phi^{-1}(u_1),\Phi^{-1}(u_2)\Big),
+\tau(X_1, X_2) = P{(X_1 − Y_1)(X_2 − Y_2) > 0} − P{(X_1 − Y_1)(X_2 − Y_2) < 0}.
 ```
-where $u_1$ and $u_2$ are parts of the standard multivariate normal random vector with correlation matrix $C$, $\Phi(z)$ is the standard
-normal cumulative distribution function, and $\Phi _\rho(u_1,u_2)$ is the bivariate normal cumulative distribution
-function with correlation coefficient $\rho$.
+
+### Definition (Kendall's tau)
+Let $X_1,\ldots, X_d$ be meta-Gaussian multivariate vector with correlation
+matrix $P$. It holds that
+```math
+\tau(X_i, X_j) = \frac{2}{\pi} \arcsin(P_{ij})
+```
+ 
