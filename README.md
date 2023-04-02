@@ -48,12 +48,11 @@ function (CDF) of uniform marginals. Therefore $C$ is a copula if there exists a
 $X = (X_1, X_2, ..., X_d)$ such that each $X_i$ is uniform in $[0, 1]$ and such that
 $C(x_1,...,x_d) = P(X_1\leq x_1,..., X_d\leq x_d)$
 
-The main result about copula is the Sklar's theorem. Sklar's Theorem is a fundamental 
-theorem in the theory of copulas and provides a way to decompose any multivariate
- distribution function into marginals and a copula.
+The main result about copula is the Sklar's theorem: it provides a way to decompose any 
+multivariate distribution function into marginals and a copula.
 
 ### Sklar's Theorem
-For any multivariate distribution function $F(x₁, x₂, ..., xn)$ of a random variable 
+For any multivariate distribution function $F(x_1, x_2, ..., x_n)$ of a random variable 
 $X = (X_1, X_2, ..., X_d)$ with arbitrary marginals, there exists a copula $C(u_1, ..., u_n)$ such that
 ```math
 F(x_1, x_2, \cdots, x_n) = C(F_1(x_1), F_2(x_2), \cdots, F_n(x_n))
@@ -74,8 +73,8 @@ that there exists a copula $C$ such that
 \Phi(x_1, x_2, \cdots, x_n) = C(\phi(x_1), \phi(x_2), \cdots, \phi(x_n))
 ```
 where $\phi$ is the standard univariate Gaussian cumulative density function of a 
- random variable $\tilde N(0, 1)$ and $\Phi$ denotes the joint cumulative density function
-of a multivariate Gaussian distribution $\tilde N_d(0, P)$. $C$ is called Gaussian copula.
+ random variable $\sim N(0, 1)$ and $\Phi$ denotes the joint cumulative density function
+of a multivariate Gaussian distribution $\sim N_d(0, P)$. $C$ is called Gaussian copula.
 
 
 From now on we will refer to multivariate random variables with Gaussian copula
