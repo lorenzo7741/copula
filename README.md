@@ -27,7 +27,7 @@ joint-cumulative density function of this pair. Tha class MetaGaussianMultivaria
 with its main method .fit on the returns of the prices. Once the model is fitted, and the 
 distribution function is defined, a sample of $n=1000$ is generated. The following chart shows
  the scatter plot of a sample of $n$ following the fitted meta-Gaussian distribution:
-![alt text](plot/sim_copula_scatter.png?raw=true)
+![alt text](https://github.com/lorenzo7741/copula/blob/main/plot/sim_copula_scatter.png?raw=true)
 Now we can compare the meta-Gaussian methodology with the classical Gaussian model. Therefore we
 evaluate the mean and the covariance matrix of the historical sample of the log-returns. 
 The resulting model, once simulated, has got this scatter plot:
