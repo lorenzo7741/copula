@@ -15,13 +15,12 @@ the Research division of the Federal Reserve Bank. The code is available in fx_r
 
 ### Procedure
 These are the prices obtained bt FRED:
-![alt text](plot/rates_hist.png?raw=true)
 ![alt text](https://github.com/lorenzo7741/copula/blob/main/plot/rates_hist.png?raw=true)
 This is a scatter plot of the log returns and a comparison between each ECDF and
  the Gaussian normal cumulative density function with the mean and standard
   deviation of the respective sample:
-![alt text](plot/rates_hist_scatter.png?raw=true)
-![alt text](plot/ecdf_vs_gaussian.png?raw=true)
+![alt text](https://github.com/lorenzo7741/copula/blob/main/plot/rates_hist_scatter.png?raw=true)
+![alt text](https://github.com/lorenzo7741/copula/blob/main/plot/ecdf_vs_gaussian.png?raw=true)
 Prices show a certain correlation. Moreover a little
 fat-tails effect is showed by the ECDFs. A meta-Gaussian model, can be used to model the 
 joint-cumulative density function of this pair. Tha class MetaGaussianMultivariate is used, 
@@ -32,7 +31,7 @@ distribution function is defined, a sample of $n=1000$ is generated. The followi
 Now we can compare the meta-Gaussian methodology with the classical Gaussian model. Therefore we
 evaluate the mean and the covariance matrix of the historical sample of the log-returns. 
 The resulting model, once simulated, has got this scatter plot:
-![alt text](plot/sim_gaussian_scatter.png?raw=true)
+![alt text](https://github.com/lorenzo7741/copula/blob/main/plot/sim_gaussian_scatter.png?raw=true)
 
 
 ## Copula's Theory and Main Results
