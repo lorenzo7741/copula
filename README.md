@@ -16,6 +16,7 @@ the Research division of the Federal Reserve Bank. The code is available in fx_r
 ### Procedure
 These are the prices obtained bt FRED:
 ![alt text](plot/rates_hist.png?raw=true)
+![alt text](https://github.com/lorenzo7741/copula/blob/main/plot/rates_hist.png?raw=true)
 This is a scatter plot of the log returns and a comparison between each ECDF and
  the Gaussian normal cumulative density function with the mean and standard
   deviation of the respective sample:
